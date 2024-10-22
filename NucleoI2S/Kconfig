@@ -1,0 +1,9 @@
+menu "Zephyr"
+source "Kconfig.zephyr"
+endmenu
+
+config DT_DEFINED_NOCACHE
+	  bool "Enable this if nocache regions are defined in devicetree"
+
+config DT_DEFINED_NOCACHE_NAME
+	  string "Name of the nocache region defined in devicetree (capitals)"

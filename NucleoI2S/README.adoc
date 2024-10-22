@@ -1,0 +1,48 @@
+# Smart Card Test Fixture
+
+Open a WSL instance, navigate to a directory that you want to work in, create a
+Sauron workspace, then navigate into the workspace and clone this repo:
+
+WARNING: when cloning, you must include `SmartCardTestFixture` (case sensitive) after the repo URL, since our 
+build tools are reliant on the case sensitive directory name that it clones the repo into.
+
+[,shell]
+----
+mkdir sauron-workspace
+cd sauron-workspace
+git clone https://gitlab.firstrf.com/programs/frf-62400_sauron/smartcardtestfixture.git SmartCardTestFixture
+----
+
+In order to set up the Zephyr build tools, and pull down the required modules used by
+our firmware, run the `initwest.py` using the following command:
+
+[,shell]
+----
+python3 SmartCardTestFixture/tools/python/initwest.py
+----
+
+The two important folders are `app` and `boards`.
+`app` contains all the source code run on our target board.
+`boards` contains our custom device along with all the pin assignments. To add pins or a device you want to access in the source code, you must first add it to the dts located here.
+
+NOTE: the lib ethernet interface should be inside the app because it's not a true library. This is fixed in Zephyr template copy from there.
+
+Once the `initwest.py` script finishes, you can build the project:
+
+[,shell]
+----
+west build SmartCardTestFixture/app -b frf_54936 -p
+----
+
+Now that the code has been built, connect the STM32 programmer, and then open the WSL USB Manager, attach the 
+`STM32 STLink`. You can now flash the code with the following command:
+
+[,shell]
+----
+west flash
+----
+
+The Python code for communicating with the SmartCardTestFixture board is located
+at the following URL: https://gitlab.firstrf.com/programs/frf-62400_sauron/sauron_python.git
+
+The ATP code is at this URL: https://gitlab.firstrf.com/programs/frf-62400_sauron/sauron_smartcard_atp[Sauron Smartcard ATP]

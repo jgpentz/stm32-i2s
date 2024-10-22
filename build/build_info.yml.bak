@@ -1,5 +1,0 @@
-west:
-  command: /Users/jamespentz/.local/share/virtualenvs/nucleo_i2s-5TyRhs3B/bin/west
-    build -b nucleo_h723zg NucleoI2S -p
-  topdir: /Users/jamespentz/Code/zephyr/nucleo_i2s
-  version: 1.2.0

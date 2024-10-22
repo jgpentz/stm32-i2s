@@ -1,1 +1,0 @@
-"mcuboot":"/Users/jamespentz/Code/zephyr/nucleo_i2s/bootloader/mcuboot":"/Users/jamespentz/Code/zephyr/nucleo_i2s/bootloader/mcuboot/boot/zephyr/sysbuild"

@@ -1,0 +1,42 @@
+// this file overwrites zephyr/boards/st/nucleo_h723zg
+// see that folder for complete board example
+
+&dma1 {
+    status = "okay";
+};
+&dma2 {
+    status = "okay";
+};
+&dmamux1 {
+    status = "okay";
+};
+
+&pinctrl {
+    /omit-if-no-ref/ i2s2_sdi_pc2: i2s2_sdi_pc2 {
+        pinmux = <STM32_PINMUX('C', 2, AF5)>;
+        slew-rate = "very-high-speed";
+    };
+
+    /omit-if-no-ref/ i2s2_sdo_pc3: i2s2_sdo_pc3 {
+        pinmux = <STM32_PINMUX('C', 3, AF5)>;
+        slew-rate = "very-high-speed";
+    };
+};
+
+&i2s2 {
+    status = "okay";
+    pinctrl-0 = <&i2s2_ck_pb10 &i2s2_mck_pc6 &i2s2_sdi_pc2 &i2s2_sdo_pc3 &i2s2_ws_pb12>;
+    pinctrl-names = "default";
+    dmas = <&dmamux1 0 40 (STM32_DMA_PERIPH_TX | STM32_DMA_PRIORITY_HIGH)
+    &dmamux1 1 39 (STM32_DMA_PERIPH_RX | STM32_DMA_PRIORITY_HIGH)>;
+    dma-names = "tx", "rx";
+    mck-enabled;
+};
+
+&i2c1 {
+    pinctrl-0 = <&i2c1_scl_pb8 &i2c1_sda_pb9>;
+    pinctrl-names = "default";
+    status = "okay";
+    clock-frequency = <I2C_BITRATE_FAST>;
+};
+
