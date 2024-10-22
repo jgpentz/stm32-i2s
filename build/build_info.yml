@@ -1,0 +1,53 @@
+cmake:
+  application:
+    configuration-dir: /Users/jamespentz/code/zephyr/nucleo_i2s/NucleoI2S
+    source-dir: /Users/jamespentz/code/zephyr/nucleo_i2s/NucleoI2S
+  board:
+    name: nucleo_h723zg
+    qualifiers: stm32h723xx
+    revision: 
+  devicetree:
+    bindings-dirs:
+     - /Users/jamespentz/Code/zephyr/nucleo_i2s/zephyr/dts/bindings
+    files:
+     - /Users/jamespentz/code/zephyr/nucleo_i2s/zephyr/boards/st/nucleo_h723zg/nucleo_h723zg.dts
+     - /Users/jamespentz/code/zephyr/nucleo_i2s/NucleoI2S/boards/nucleo_h723zg.overlay
+    include-dirs:
+     - /Users/jamespentz/Code/zephyr/nucleo_i2s/modules/hal/atmel/include
+     - /Users/jamespentz/Code/zephyr/nucleo_i2s/modules/hal/gigadevice/include
+     - /Users/jamespentz/Code/zephyr/nucleo_i2s/modules/hal/microchip/dts
+     - /Users/jamespentz/Code/zephyr/nucleo_i2s/modules/hal/nuvoton/dts
+     - /Users/jamespentz/Code/zephyr/nucleo_i2s/modules/hal/nxp/dts
+     - /Users/jamespentz/Code/zephyr/nucleo_i2s/modules/hal/stm32/dts
+     - /Users/jamespentz/Code/zephyr/nucleo_i2s/zephyr/include
+     - /Users/jamespentz/Code/zephyr/nucleo_i2s/zephyr/include/zephyr
+     - /Users/jamespentz/Code/zephyr/nucleo_i2s/zephyr/dts/common
+     - /Users/jamespentz/Code/zephyr/nucleo_i2s/zephyr/dts/x86
+     - /Users/jamespentz/Code/zephyr/nucleo_i2s/zephyr/dts/xtensa
+     - /Users/jamespentz/Code/zephyr/nucleo_i2s/zephyr/dts/sparc
+     - /Users/jamespentz/Code/zephyr/nucleo_i2s/zephyr/dts/riscv
+     - /Users/jamespentz/Code/zephyr/nucleo_i2s/zephyr/dts/posix
+     - /Users/jamespentz/Code/zephyr/nucleo_i2s/zephyr/dts/nios2
+     - /Users/jamespentz/Code/zephyr/nucleo_i2s/zephyr/dts/arm64
+     - /Users/jamespentz/Code/zephyr/nucleo_i2s/zephyr/dts/arm
+     - /Users/jamespentz/Code/zephyr/nucleo_i2s/zephyr/dts/arc
+     - /Users/jamespentz/Code/zephyr/nucleo_i2s/zephyr/dts
+    user-files:
+     - /Users/jamespentz/code/zephyr/nucleo_i2s/NucleoI2S/boards/nucleo_h723zg.overlay
+  kconfig:
+    files:
+     - /Users/jamespentz/code/zephyr/nucleo_i2s/zephyr/boards/st/nucleo_h723zg/nucleo_h723zg_defconfig
+     - /Users/jamespentz/code/zephyr/nucleo_i2s/NucleoI2S/prj.conf
+    user-files:
+     - /Users/jamespentz/code/zephyr/nucleo_i2s/NucleoI2S/prj.conf
+  toolchain:
+    name: zephyr
+    path: /opt/zephyr-sdk-0.16.8
+  zephyr:
+    version: 3.7.99
+    zephyr-base: /Users/jamespentz/code/zephyr/nucleo_i2s/zephyr
+version: 0.1.0
+west:
+  command: /Users/jamespentz/.local/share/virtualenvs/nucleo_i2s-5TyRhs3B/bin/west build -b nucleo_h723zg NucleoI2S -p
+  topdir: /Users/jamespentz/Code/zephyr/nucleo_i2s
+  version: 1.2.0
