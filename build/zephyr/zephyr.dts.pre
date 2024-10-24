@@ -6190,5 +6190,21 @@ zephyr_udc0: &usbotg_hs {
     status = "okay";
     clock-frequency = <400000>;
 };
+
+&sdmmc1 {
+    status = "okay";
+    pinctrl-0 = <
+        &sdmmc1_d0_pc8
+        &sdmmc1_d1_pc9
+        &sdmmc1_d2_pc10
+        &sdmmc1_d3_pc11
+        &sdmmc1_ck_pc12
+        &sdmmc1_cmd_pd2>;
+    clk-div = <2>;
+    bus-width = <1>;
+    pinctrl-names = "default";
+    clocks = <&rcc 0x0D4 0x00010000>,
+        <&rcc ((0x003 + 1) + 1) ((((0x4C) & 0xFFU) << 0U) | (((16) & 0x1FU) << 8U) | (((1) & 0x7U) << 13U) | (((0) & 0x7U) << 16U))>;
+};
 # 0 "<command-line>" 2
 # 1 "/Users/jamespentz/code/zephyr/nucleo_i2s/zephyr/misc/empty_file.c"

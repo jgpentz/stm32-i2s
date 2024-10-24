@@ -139,6 +139,11 @@ endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for the subdirectory.
+  include("/Users/jamespentz/code/zephyr/nucleo_i2s/build/zephyr/subsys/disk/cmake_install.cmake")
+endif()
+
+if(NOT CMAKE_INSTALL_LOCAL_ONLY)
+  # Include the install script for the subdirectory.
   include("/Users/jamespentz/code/zephyr/nucleo_i2s/build/zephyr/subsys/shell/cmake_install.cmake")
 endif()
 

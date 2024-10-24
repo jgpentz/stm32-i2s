@@ -97,7 +97,7 @@
 				#gpio-cells = < 0x2 >;
 				reg = < 0x58020000 0x400 >;
 				clocks = < &rcc 0xe0 0x1 >;
-				phandle = < 0x2a >;
+				phandle = < 0x30 >;
 			};
 			gpiob: gpio@58020400 {
 				compatible = "st,stm32-gpio";
@@ -105,7 +105,7 @@
 				#gpio-cells = < 0x2 >;
 				reg = < 0x58020400 0x400 >;
 				clocks = < &rcc 0xe0 0x2 >;
-				phandle = < 0x2c >;
+				phandle = < 0x32 >;
 			};
 			gpioc: gpio@58020800 {
 				compatible = "st,stm32-gpio";
@@ -113,7 +113,7 @@
 				#gpio-cells = < 0x2 >;
 				reg = < 0x58020800 0x400 >;
 				clocks = < &rcc 0xe0 0x4 >;
-				phandle = < 0x2b >;
+				phandle = < 0x31 >;
 			};
 			gpiod: gpio@58020C00 {
 				compatible = "st,stm32-gpio";
@@ -129,7 +129,7 @@
 				#gpio-cells = < 0x2 >;
 				reg = < 0x58021000 0x400 >;
 				clocks = < &rcc 0xe0 0x10 >;
-				phandle = < 0x2f >;
+				phandle = < 0x35 >;
 			};
 			gpiof: gpio@58021400 {
 				compatible = "st,stm32-gpio";
@@ -137,7 +137,7 @@
 				#gpio-cells = < 0x2 >;
 				reg = < 0x58021400 0x400 >;
 				clocks = < &rcc 0xe0 0x20 >;
-				phandle = < 0x2d >;
+				phandle = < 0x33 >;
 			};
 			gpiog: gpio@58021800 {
 				compatible = "st,stm32-gpio";
@@ -145,7 +145,7 @@
 				#gpio-cells = < 0x2 >;
 				reg = < 0x58021800 0x400 >;
 				clocks = < &rcc 0xe0 0x40 >;
-				phandle = < 0x2e >;
+				phandle = < 0x34 >;
 			};
 			gpioh: gpio@58021C00 {
 				compatible = "st,stm32-gpio";
@@ -178,47 +178,47 @@
 			eth_crs_dv_pa7: eth_crs_dv_pa7 {
 				pinmux = < 0xeb >;
 				slew-rate = "very-high-speed";
-				phandle = < 0x19 >;
+				phandle = < 0x1f >;
 			};
 			eth_mdc_pc1: eth_mdc_pc1 {
 				pinmux = < 0x42b >;
 				slew-rate = "very-high-speed";
-				phandle = < 0x20 >;
+				phandle = < 0x26 >;
 			};
 			eth_mdio_pa2: eth_mdio_pa2 {
 				pinmux = < 0x4b >;
 				slew-rate = "very-high-speed";
-				phandle = < 0x1f >;
+				phandle = < 0x25 >;
 			};
 			eth_ref_clk_pa1: eth_ref_clk_pa1 {
 				pinmux = < 0x2b >;
 				slew-rate = "very-high-speed";
-				phandle = < 0x18 >;
+				phandle = < 0x1e >;
 			};
 			eth_rxd0_pc4: eth_rxd0_pc4 {
 				pinmux = < 0x48b >;
 				slew-rate = "very-high-speed";
-				phandle = < 0x1a >;
+				phandle = < 0x20 >;
 			};
 			eth_rxd1_pc5: eth_rxd1_pc5 {
 				pinmux = < 0x4ab >;
 				slew-rate = "very-high-speed";
-				phandle = < 0x1b >;
+				phandle = < 0x21 >;
 			};
 			eth_txd0_pg13: eth_txd0_pg13 {
 				pinmux = < 0xdab >;
 				slew-rate = "very-high-speed";
-				phandle = < 0x1d >;
+				phandle = < 0x23 >;
 			};
 			eth_txd1_pb13: eth_txd1_pb13 {
 				pinmux = < 0x3ab >;
 				slew-rate = "very-high-speed";
-				phandle = < 0x1e >;
+				phandle = < 0x24 >;
 			};
 			eth_tx_en_pg11: eth_tx_en_pg11 {
 				pinmux = < 0xd6b >;
 				slew-rate = "very-high-speed";
-				phandle = < 0x1c >;
+				phandle = < 0x22 >;
 			};
 			fdcan1_rx_pd0: fdcan1_rx_pd0 {
 				pinmux = < 0x609 >;
@@ -253,6 +253,42 @@
 			i2s2_ws_pb12: i2s2_ws_pb12 {
 				pinmux = < 0x385 >;
 				phandle = < 0x14 >;
+			};
+			sdmmc1_d0_pc8: sdmmc1_d0_pc8 {
+				pinmux = < 0x50c >;
+				bias-pull-up;
+				slew-rate = "very-high-speed";
+				phandle = < 0x18 >;
+			};
+			sdmmc1_d1_pc9: sdmmc1_d1_pc9 {
+				pinmux = < 0x52c >;
+				bias-pull-up;
+				slew-rate = "very-high-speed";
+				phandle = < 0x19 >;
+			};
+			sdmmc1_d2_pc10: sdmmc1_d2_pc10 {
+				pinmux = < 0x54c >;
+				bias-pull-up;
+				slew-rate = "very-high-speed";
+				phandle = < 0x1a >;
+			};
+			sdmmc1_d3_pc11: sdmmc1_d3_pc11 {
+				pinmux = < 0x56c >;
+				bias-pull-up;
+				slew-rate = "very-high-speed";
+				phandle = < 0x1b >;
+			};
+			sdmmc1_ck_pc12: sdmmc1_ck_pc12 {
+				pinmux = < 0x58c >;
+				bias-pull-up;
+				slew-rate = "very-high-speed";
+				phandle = < 0x1c >;
+			};
+			sdmmc1_cmd_pd2: sdmmc1_cmd_pd2 {
+				pinmux = < 0x64c >;
+				bias-pull-up;
+				slew-rate = "very-high-speed";
+				phandle = < 0x1d >;
 			};
 			spi1_miso_pa6: spi1_miso_pa6 {
 				pinmux = < 0xc5 >;
@@ -294,11 +330,11 @@
 			};
 			usb_otg_hs_dm_pa11: usb_otg_hs_dm_pa11 {
 				pinmux = < 0x170 >;
-				phandle = < 0x22 >;
+				phandle = < 0x28 >;
 			};
 			usb_otg_hs_dp_pa12: usb_otg_hs_dp_pa12 {
 				pinmux = < 0x190 >;
-				phandle = < 0x23 >;
+				phandle = < 0x29 >;
 			};
 			i2s2_sdi_pc2: i2s2_sdi_pc2 {
 				pinmux = < 0x445 >;
@@ -428,7 +464,7 @@
 			status = "okay";
 			pinctrl-0 = < &i2c1_scl_pb8 &i2c1_sda_pb9 >;
 			pinctrl-names = "default";
-			phandle = < 0x26 >;
+			phandle = < 0x2c >;
 		};
 		i2c2: i2c@40005800 {
 			compatible = "st,stm32-i2c-v2";
@@ -440,7 +476,7 @@
 			interrupts = < 0x21 0x0 >, < 0x22 0x0 >;
 			interrupt-names = "event", "error";
 			status = "disabled";
-			phandle = < 0x27 >;
+			phandle = < 0x2d >;
 		};
 		i2c3: i2c@40005c00 {
 			compatible = "st,stm32-i2c-v2";
@@ -452,7 +488,7 @@
 			interrupts = < 0x48 0x0 >, < 0x49 0x0 >;
 			interrupt-names = "event", "error";
 			status = "disabled";
-			phandle = < 0x28 >;
+			phandle = < 0x2e >;
 		};
 		i2c4: i2c@58001c00 {
 			compatible = "st,stm32-i2c-v2";
@@ -464,7 +500,7 @@
 			interrupts = < 0x5f 0x0 >, < 0x60 0x0 >;
 			interrupt-names = "event", "error";
 			status = "disabled";
-			phandle = < 0x29 >;
+			phandle = < 0x2f >;
 		};
 		spi1: arduino_spi: spi@40013000 {
 			compatible = "st,stm32h7-spi", "st,stm32-spi-fifo", "st,stm32-spi";
@@ -730,7 +766,7 @@
 				#pwm-cells = < 0x3 >;
 				pinctrl-0 = < &tim12_ch1_pb14 >;
 				pinctrl-names = "default";
-				phandle = < 0x30 >;
+				phandle = < 0x36 >;
 			};
 			counter {
 				compatible = "st,stm32-counter";
@@ -885,7 +921,7 @@
 			resolutions = < 0x60630c 0x51630c 0x42630c 0x33630c >;
 			sampling-times = < 0x3 0x7 0xd 0x19 0x30 0x5d 0xf8 0x281 >;
 			st,adc-sequencer = < 0x1 >;
-			phandle = < 0x25 >;
+			phandle = < 0x2b >;
 		};
 		dac1: dac@40007400 {
 			compatible = "st,stm32-dac";
@@ -962,10 +998,14 @@
 		sdmmc1: sdmmc@52007000 {
 			compatible = "st,stm32-sdmmc";
 			reg = < 0x52007000 0x400 >;
-			clocks = < &rcc 0xd4 0x10000 >, < &rcc 0x9 0x304c >;
+			clocks = < &rcc 0xd4 0x10000 >, < &rcc 0x5 0x304c >;
 			resets = < &rctl 0xf90 >;
 			interrupts = < 0x31 0x0 >;
-			status = "disabled";
+			status = "okay";
+			pinctrl-0 = < &sdmmc1_d0_pc8 &sdmmc1_d1_pc9 &sdmmc1_d2_pc10 &sdmmc1_d3_pc11 &sdmmc1_ck_pc12 &sdmmc1_cmd_pd2 >;
+			clk-div = < 0x2 >;
+			bus-width = < 0x1 >;
+			pinctrl-names = "default";
 		};
 		sdmmc2: sdmmc@48022400 {
 			compatible = "st,stm32-sdmmc";
@@ -1180,7 +1220,7 @@
 			status = "okay";
 			hse-bypass;
 			clock-frequency = < 0x7a1200 >;
-			phandle = < 0x24 >;
+			phandle = < 0x2a >;
 		};
 		clk_hsi: clk-hsi {
 			#clock-cells = < 0x0 >;
@@ -1344,7 +1384,7 @@
 	otghs_fs_phy: otghs_fs_phy {
 		compatible = "usb-nop-xceiv";
 		#phy-cells = < 0x0 >;
-		phandle = < 0x21 >;
+		phandle = < 0x27 >;
 	};
 	arduino_header: connector {
 		compatible = "arduino-header-r3";

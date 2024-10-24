@@ -105,6 +105,7 @@
 /Users/jamespentz/code/zephyr/nucleo_i2s/build/zephyr/subsys/debug/CMakeFiles/rebuild_cache.dir
 /Users/jamespentz/code/zephyr/nucleo_i2s/build/zephyr/subsys/fb/CMakeFiles/edit_cache.dir
 /Users/jamespentz/code/zephyr/nucleo_i2s/build/zephyr/subsys/fb/CMakeFiles/rebuild_cache.dir
+/Users/jamespentz/code/zephyr/nucleo_i2s/build/zephyr/subsys/fs/CMakeFiles/subsys__fs.dir
 /Users/jamespentz/code/zephyr/nucleo_i2s/build/zephyr/subsys/fs/CMakeFiles/edit_cache.dir
 /Users/jamespentz/code/zephyr/nucleo_i2s/build/zephyr/subsys/fs/CMakeFiles/rebuild_cache.dir
 /Users/jamespentz/code/zephyr/nucleo_i2s/build/zephyr/subsys/ipc/CMakeFiles/edit_cache.dir
@@ -143,6 +144,8 @@
 /Users/jamespentz/code/zephyr/nucleo_i2s/build/zephyr/subsys/tracing/CMakeFiles/rebuild_cache.dir
 /Users/jamespentz/code/zephyr/nucleo_i2s/build/zephyr/subsys/usb/CMakeFiles/edit_cache.dir
 /Users/jamespentz/code/zephyr/nucleo_i2s/build/zephyr/subsys/usb/CMakeFiles/rebuild_cache.dir
+/Users/jamespentz/code/zephyr/nucleo_i2s/build/zephyr/subsys/disk/CMakeFiles/edit_cache.dir
+/Users/jamespentz/code/zephyr/nucleo_i2s/build/zephyr/subsys/disk/CMakeFiles/rebuild_cache.dir
 /Users/jamespentz/code/zephyr/nucleo_i2s/build/zephyr/subsys/shell/CMakeFiles/edit_cache.dir
 /Users/jamespentz/code/zephyr/nucleo_i2s/build/zephyr/subsys/shell/CMakeFiles/rebuild_cache.dir
 /Users/jamespentz/code/zephyr/nucleo_i2s/build/zephyr/subsys/shell/modules/CMakeFiles/edit_cache.dir
@@ -155,6 +158,7 @@
 /Users/jamespentz/code/zephyr/nucleo_i2s/build/zephyr/subsys/shell/backends/CMakeFiles/rebuild_cache.dir
 /Users/jamespentz/code/zephyr/nucleo_i2s/build/zephyr/drivers/CMakeFiles/edit_cache.dir
 /Users/jamespentz/code/zephyr/nucleo_i2s/build/zephyr/drivers/CMakeFiles/rebuild_cache.dir
+/Users/jamespentz/code/zephyr/nucleo_i2s/build/zephyr/drivers/disk/CMakeFiles/drivers__disk.dir
 /Users/jamespentz/code/zephyr/nucleo_i2s/build/zephyr/drivers/disk/CMakeFiles/edit_cache.dir
 /Users/jamespentz/code/zephyr/nucleo_i2s/build/zephyr/drivers/disk/CMakeFiles/rebuild_cache.dir
 /Users/jamespentz/code/zephyr/nucleo_i2s/build/zephyr/drivers/firmware/CMakeFiles/edit_cache.dir
@@ -223,6 +227,7 @@
 /Users/jamespentz/code/zephyr/nucleo_i2s/build/modules/cmsis-dsp/CMakeFiles/rebuild_cache.dir
 /Users/jamespentz/code/zephyr/nucleo_i2s/build/modules/cmsis-nn/CMakeFiles/edit_cache.dir
 /Users/jamespentz/code/zephyr/nucleo_i2s/build/modules/cmsis-nn/CMakeFiles/rebuild_cache.dir
+/Users/jamespentz/code/zephyr/nucleo_i2s/build/modules/fatfs/CMakeFiles/modules__fatfs.dir
 /Users/jamespentz/code/zephyr/nucleo_i2s/build/modules/fatfs/CMakeFiles/edit_cache.dir
 /Users/jamespentz/code/zephyr/nucleo_i2s/build/modules/fatfs/CMakeFiles/rebuild_cache.dir
 /Users/jamespentz/code/zephyr/nucleo_i2s/build/modules/adi/CMakeFiles/edit_cache.dir
