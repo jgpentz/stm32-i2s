@@ -144,8 +144,13 @@ void read_wav_file(const char *file_name)
 	}
 
 	// Close the file
-	fs_close(&wav_file);
 	free(fpath);
+}
+
+int32_t read_data(int16_t *buffer, uint32_t block_size)
+{
+	res = fs_read(&wav_file, buffer, block_size);
+	return res;
 }
 
 /* List dir entry by path

@@ -27,6 +27,7 @@ typedef struct {
 
 // Function to read a WAV file
 void read_wav_file(const char *file_name);
+int32_t read_data(int16_t *buffer, uint32_t block_size);
 
 void lsdir(void);
 

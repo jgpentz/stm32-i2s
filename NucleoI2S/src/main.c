@@ -28,7 +28,7 @@
 #define TIMEOUT           (2000U)
 
 #define BLOCK_SIZE  (BYTES_PER_SAMPLE * SAMPLES_PER_BLOCK)
-#define BLOCK_COUNT (INITIAL_BLOCKS + 32)
+#define BLOCK_COUNT (INITIAL_BLOCKS + 25)
 K_MEM_SLAB_DEFINE_STATIC(mem_slab, BLOCK_SIZE, BLOCK_COUNT, 4);
 
 /* ----- private static variables ----- */
@@ -36,7 +36,7 @@ static const struct device *dev_i2s;
 static struct i2s_config i2s_cfg;
 static bool stream_started = false;
 
-static K_THREAD_STACK_DEFINE(tone_thread_stack, 1024); // Adjust stack size as needed
+static K_THREAD_STACK_DEFINE(tone_thread_stack, 4096); // Adjust stack size as needed
 static struct k_thread tone_thread_data;
 
 /* ----- private function declarations ----- */
@@ -91,12 +91,17 @@ static bool trigger_command(const struct device *dev_i2s, enum i2s_trigger_cmd c
 	return true;
 }
 
+#define PRE_FILL_BUFFERS 2 // Number of buffers to pre-fill before starting
+
 void tone_thread(void *arg1, void *arg2, void *arg3)
 {
 	struct shell *shell = (struct shell *)arg1; // Pass shell pointer to thread
 	int ret;
 
 	bool trigger_stream = true;
+	uint8_t buffer[BLOCK_SIZE]; // Buffer for file data
+	uint32_t bytes_read;
+
 	while (stream_started) {
 		void *mem_block;
 		int16_t *buffer;
@@ -109,8 +114,7 @@ void tone_thread(void *arg1, void *arg2, void *arg3)
 		}
 
 		buffer = (int16_t *)mem_block;
-		generate_sine_wave(buffer, SAMPLES_PER_BLOCK, SAMPLE_FREQUENCY, SINE_FREQ,
-				   NUMBER_OF_CHANNELS);
+		int32_t num_read = read_data(buffer, block_size);
 
 		ret = i2s_write(dev_i2s, mem_block, block_size);
 		if (ret < 0) {
@@ -129,7 +133,6 @@ void tone_thread(void *arg1, void *arg2, void *arg3)
 		}
 
 		// Add a short sleep to yield control back to the OS
-		k_sleep(K_MSEC(1)); // Adjust the duration as needed
 	}
 
 	if (!trigger_command(dev_i2s, I2S_TRIGGER_DROP)) {
