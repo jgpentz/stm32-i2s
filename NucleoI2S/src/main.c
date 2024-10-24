@@ -5,6 +5,7 @@
 #include <zephyr/drivers/i2c.h>
 #include <math.h>
 #include <string.h>
+#include "wav_reader.h"
 
 /* ----- definitions ----- */
 #ifndef M_PI
@@ -175,6 +176,7 @@ SHELL_CMD_ARG_REGISTER(stop_tone, NULL, "Stop sine wave tone", cmd_stop_tone, 1,
 
 void main(void)
 {
+    lsdir();
     dev_i2s = DEVICE_DT_GET(DT_NODELABEL(i2s2));
 
     if (!device_is_ready(dev_i2s)) {
