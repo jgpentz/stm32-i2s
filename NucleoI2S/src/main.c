@@ -91,7 +91,7 @@ static bool trigger_command(const struct device *dev_i2s, enum i2s_trigger_cmd c
 	return true;
 }
 
-#define PRE_FILL_BUFFERS 2 // Number of buffers to pre-fill before starting
+#define PRE_FILL_BUFFERS 3 // Number of buffers to pre-fill before starting
 
 void tone_thread(void *arg1, void *arg2, void *arg3)
 {
@@ -102,12 +102,44 @@ void tone_thread(void *arg1, void *arg2, void *arg3)
 	uint8_t buffer[BLOCK_SIZE]; // Buffer for file data
 	uint32_t bytes_read;
 
+	int pre_filled_buffers = 0;
+
+	// Pre-fill multiple buffers before starting the I2S stream
+	while (pre_filled_buffers < PRE_FILL_BUFFERS && stream_started) {
+		void *mem_block;
+		int16_t *buffer;
+		uint32_t block_size = BLOCK_SIZE;
+
+		ret = k_mem_slab_alloc(&mem_slab, &mem_block, K_FOREVER);
+		if (ret < 0) {
+			shell_print(shell, "Failed to allocate TX block");
+			break;
+		}
+
+		buffer = (int16_t *)mem_block;
+		int32_t num_read = read_data(buffer, block_size);
+		if (num_read < 0) {
+			shell_print(shell, "Reached end of file or error while reading data");
+			k_mem_slab_free(&mem_slab, &mem_block);
+			break;
+		}
+
+		ret = i2s_write(dev_i2s, mem_block, block_size);
+		if (ret < 0) {
+			shell_print(shell, "Failed to write data: %d", ret);
+			k_mem_slab_free(&mem_slab, &mem_block);
+			break;
+		}
+
+		pre_filled_buffers++;
+	}
+
 	while (stream_started) {
 		void *mem_block;
 		int16_t *buffer;
 		uint32_t block_size = BLOCK_SIZE;
 
-		ret = k_mem_slab_alloc(&mem_slab, &mem_block, Z_TIMEOUT_TICKS(TIMEOUT));
+		ret = k_mem_slab_alloc(&mem_slab, &mem_block, K_FOREVER);
 		if (ret < 0) {
 			shell_print(shell, "Failed to allocate TX block");
 			break;
@@ -155,7 +187,7 @@ static int cmd_start_tone(const struct shell *shell, size_t argc, char **argv)
 	// Create a new thread to handle tone generation
 	k_thread_create(&tone_thread_data, tone_thread_stack,
 			K_THREAD_STACK_SIZEOF(tone_thread_stack), tone_thread, (void *)shell, NULL,
-			NULL, K_PRIO_PREEMPT(7), 0, K_NO_WAIT);
+			NULL, 0, 0, K_NO_WAIT);
 
 	return 0;
 }
@@ -200,7 +232,7 @@ void main(void)
 	i2s_cfg.format = I2S_FMT_DATA_FORMAT_I2S;
 	i2s_cfg.frame_clk_freq = SAMPLE_FREQUENCY;
 	i2s_cfg.block_size = BLOCK_SIZE;
-	i2s_cfg.timeout = TIMEOUT;
+	i2s_cfg.timeout = SYS_FOREVER_MS;
 	i2s_cfg.options = I2S_OPT_FRAME_CLK_MASTER | I2S_OPT_BIT_CLK_MASTER;
 	i2s_cfg.mem_slab = &mem_slab;
 

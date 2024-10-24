@@ -132,18 +132,7 @@ void read_wav_file(const char *file_name)
 		free(fpath);
 	}
 
-	res = fs_read(&wav_file, buffer, 12);
-	if (res < 0) {
-		LOG_ERR("Error reading WAV data: %d", res);
-		free(fpath);
-	}
-
-	int16_t *vals = (int16_t *)buffer;
-	for (int i = 0; i < 6; i++) {
-		LOG_INF("vals: %d", vals[i]);
-	}
-
-	// Close the file
+	// Free the unused path
 	free(fpath);
 }
 
